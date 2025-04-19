@@ -1,16 +1,174 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>飞翔小鸟 - 经典休闲摸鱼小游戏 | birdgame.com</title>
-    <meta name="description" content="飞翔小鸟是一款简单但极具挑战性的休闲游戏，适合在工作之余放松心情。快来挑战高分，享受休闲时光！" />
-    <link rel="canonical" href="https://birdgame.com" />
-    <meta name="keywords" content="飞翔小鸟,摸鱼小游戏,在线游戏,休闲游戏" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞翔小鸟 - 轻松摸鱼小游戏 | BirdGame.com</title>
+    <meta name="description" content="飞翔小鸟是一款经典的摸鱼小游戏，简单有趣，随时都能玩，是工作学习之余放松的好选择。">
+    <link rel="canonical" href="https://birdgame.com/" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-orange: #FF9500;
+            --apple-red: #FF3B30;
+            --apple-purple: #AF52DE;
+            --apple-gray: #8E8E93;
+            --apple-bg: #F2F2F7;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-bg);
+        }
+        
+        .game-container {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .apple-btn {
+            background-color: var(--apple-blue);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .apple-btn:hover {
+            background-color: #0062CC;
+            transform: translateY(-2px);
+        }
+        
+        .header-bg {
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple));
+        }
+        
+        .instruction-card {
+            border-radius: 12px;
+            border-left: 4px solid var(--apple-green);
+        }
+
+        .tip-card {
+            border-radius: 12px;
+            border-left: 4px solid var(--apple-orange);
+        }
+        
+        .contact-info {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 8px;
+            margin-top: 8px;
+            color: #FF9500;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            animation: gentle-glow 2s infinite alternate;
+        }
+        
+        @keyframes gentle-glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 149, 0, 0.3);
+            }
+            to {
+                text-shadow: 0 0 8px rgba(255, 149, 0, 0.6);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .game-container iframe {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="header-bg text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold tracking-tight">飞翔小鸟</h1>
+                    <p class="text-lg mt-2 opacity-90">简单有趣的经典摸鱼小游戏，随时开玩</p>
+                </div>
+                <div>
+                    <a href="#play" class="apple-btn inline-block px-6 py-3 text-white font-medium">立即游戏</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="play" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">开始游戏</h2>
+            <div class="game-container bg-white p-4">
+                <iframe src="https://nebez.github.io/floppybird/" frameborder="0" width="100%" height="600" class="mx-auto block"></iframe>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">游戏说明</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="instruction-card bg-white p-6 shadow-sm">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--apple-green);">操作方法</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>电脑端：点击鼠标或按空格键让小鸟飞翔</li>
+                        <li>移动端：点击屏幕让小鸟飞翔</li>
+                        <li>控制好点击节奏，避开障碍物</li>
+                        <li>穿过每一对管道即可得分</li>
+                    </ul>
+                </div>
+                <div class="tip-card bg-white p-6 shadow-sm">
+                    <h3 class="text-xl font-semibold mb-3" style="color: var(--apple-orange);">小技巧</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>轻点轻点，保持平稳飞行高度</li>
+                        <li>提前规划飞行路径，不要急躁</li>
+                        <li>保持耐心，游戏节奏会越来越快</li>
+                        <li>专注于下一个管道，不要分心</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">游戏背景</h2>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <p class="text-gray-700 mb-4">《飞翔小鸟》是一款风靡全球的休闲小游戏，灵感来源于经典的"Flappy Bird"。这款游戏以其简单而富有挑战性的玩法深受玩家喜爱，成为了办公室和学校里最受欢迎的"摸鱼"游戏之一。</p>
+                <p class="text-gray-700 mb-4">游戏的规则非常简单：控制一只小鸟，通过点击屏幕或按键让它飞行，同时避开途中的各种管道障碍物。看似简单的操作背后，却需要玩家拥有良好的反应能力和耐心。</p>
+                <p class="text-gray-700">特别适合在工作或学习的短暂休息时间里放松心情，但要小心，它的上瘾性可能会让你忘记时间！快来挑战，看看你能获得多少分吧！</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">常见问题</h2>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2" style="color: var(--apple-blue);">这款游戏适合什么年龄段的玩家？</h3>
+                    <p class="text-gray-700">《飞翔小鸟》适合所有年龄段的玩家。由于其简单的操作和无暴力内容，非常适合从儿童到成人的各类玩家。</p>
+                </div>
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2" style="color: var(--apple-blue);">游戏是否需要联网？</h3>
+                    <p class="text-gray-700">首次加载需要联网，加载完成后，您可以在没有网络连接的情况下继续游戏。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2" style="color: var(--apple-blue);">游戏是否支持保存分数？</h3>
+                    <p class="text-gray-700">是的，游戏会在本地保存您的最高分记录，方便您下次挑战自己的记录。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 BirdGame.com - 飞翔小鸟摸鱼小游戏</p>
+                    <p class="contact-info">本网页由Star通过AI开发，正在寻找AI相关工作，请联系我哦：619304301@qq.com</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-gray-300 transition">关于我们</a>
+                    <a href="#" class="hover:text-gray-300 transition">隐私政策</a>
+                    <a href="#" class="hover:text-gray-300 transition">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
